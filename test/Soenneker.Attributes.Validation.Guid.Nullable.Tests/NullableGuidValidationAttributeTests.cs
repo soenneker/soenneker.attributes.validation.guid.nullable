@@ -1,11 +1,10 @@
-﻿using Soenneker.Tests.Unit;
-using Xunit;
+using Soenneker.Tests.Unit;
 
 namespace Soenneker.Attributes.Validation.Guid.Nullable.Tests;
 
 public sealed class NullableGuidValidationAttributeTests : UnitTest
 {
-    [Fact]
+    [Test]
     public void Default()
     {
 
