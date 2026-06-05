@@ -9,6 +9,11 @@ namespace Soenneker.Attributes.Validation.Guid.Nullable;
 /// </summary> 
 public class NullableGuidValidationAttribute : ValidationAttribute
 {
+    /// <summary>
+    /// Gets error message.
+    /// </summary>
+    /// <param name="fieldName">The field name.</param>
+    /// <returns>The result of the operation.</returns>
     public static string GetErrorMessage(string? fieldName)
     {
         if (fieldName == null)
