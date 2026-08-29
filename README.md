@@ -1,6 +1,7 @@
 [![](https://img.shields.io/nuget/v/soenneker.attributes.validation.guid.nullable.svg?style=for-the-badge)](https://www.nuget.org/packages/soenneker.attributes.validation.guid.nullable/)
 [![](https://img.shields.io/github/actions/workflow/status/soenneker/soenneker.attributes.validation.guid.nullable/publish-package.yml?style=for-the-badge)](https://github.com/soenneker/soenneker.attributes.validation.guid.nullable/actions/workflows/publish-package.yml)
 [![](https://img.shields.io/nuget/dt/soenneker.attributes.validation.guid.nullable.svg?style=for-the-badge)](https://www.nuget.org/packages/soenneker.attributes.validation.guid.nullable/)
+[![](https://img.shields.io/github/actions/workflow/status/soenneker/soenneker.attributes.validation.guid.nullable/codeql.yml?label=CodeQL&style=for-the-badge)](https://github.com/soenneker/soenneker.attributes.validation.guid.nullable/actions/workflows/codeql.yml)
 
 # Soenneker.Attributes.Validation.Guid.Nullable
 
