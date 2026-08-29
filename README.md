@@ -1,32 +1,39 @@
 [![](https://img.shields.io/nuget/v/soenneker.attributes.validation.guid.nullable.svg?style=for-the-badge)](https://www.nuget.org/packages/soenneker.attributes.validation.guid.nullable/)
 [![](https://img.shields.io/github/actions/workflow/status/soenneker/soenneker.attributes.validation.guid.nullable/publish-package.yml?style=for-the-badge)](https://github.com/soenneker/soenneker.attributes.validation.guid.nullable/actions/workflows/publish-package.yml)
 [![](https://img.shields.io/nuget/dt/soenneker.attributes.validation.guid.nullable.svg?style=for-the-badge)](https://www.nuget.org/packages/soenneker.attributes.validation.guid.nullable/)
-[![](https://img.shields.io/github/actions/workflow/status/soenneker/soenneker.attributes.validation.guid.nullable/codeql.yml?label=CodeQL&style=for-the-badge)](https://github.com/soenneker/soenneker.attributes.validation.guid.nullable/actions/workflows/codeql.yml)
 
 # Soenneker.Attributes.Validation.Guid.Nullable
 
-A validation attribute that ensures a nullable string is a valid, nullable GUID. If this value is not null, checks to make sure the GUID can be parsed. If the value is null, this passes.
+A DataAnnotations validator for an optional string that, when supplied, must contain a non-empty GUID.
 
-## Install
+## Installation
 
 ```bash
 dotnet add package Soenneker.Attributes.Validation.Guid.Nullable
 ```
 
-## Quick start
+## Usage
 
 ```csharp
 using Soenneker.Attributes.Validation.Guid.Nullable;
 
-public sealed class Request
+public sealed class SearchRequest
 {
     [NullableGuidValidation]
-    public string? Value { get; init; }
+    public string? OwnerId { get; init; }
 }
 ```
 
-A validation attribute that ensures a nullable string is a valid, nullable GUID. If this value is not null, checks to make sure the GUID can be parsed. If the value is null, this passes.
+The attribute participates in normal DataAnnotations and ASP.NET Core model validation.
 
-## What you get
+## Validation rules
 
-- `NullableGuidValidationAttribute` — A validation attribute that ensures a nullable string is a valid, nullable GUID. If this value is not null, checks to make sure the GUID can be parsed. If the value is null, this passes.
+| Value | Result |
+| --- | --- |
+| `null` | Valid |
+| A parseable, non-empty GUID string | Valid |
+| Malformed or blank string | Invalid |
+| `00000000-0000-0000-0000-000000000000` | Invalid |
+| A non-string value | Invalid |
+
+This validator treats only `null` as absent; an empty string is not a valid GUID. Use `Soenneker.Attributes.Validation.Guid` when the value is required.

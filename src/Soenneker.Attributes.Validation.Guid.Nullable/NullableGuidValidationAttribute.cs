@@ -28,7 +28,7 @@ public class NullableGuidValidationAttribute : ValidationAttribute
             return ValidationResult.Success;
 
         if (value is not string s)
-            return null;
+            return new ValidationResult(GetErrorMessage(validationContext?.MemberName));
 
         if (s.IsValidPopulatedNullableGuid())
             return ValidationResult.Success;
